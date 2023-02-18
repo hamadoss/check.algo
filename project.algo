@@ -1,0 +1,27 @@
+BEGIN
+  DECLARE sentence, length, wordCount, vowelCount: INTEGER
+  DECLARE ch: CHARACTER
+
+  sentence := ""
+  length := 0
+  wordCount := 0
+  vowelCount := 0
+
+  WRITE "Enter a sentence that ends with a period: "
+  READ ch
+  WHILE ch <> '.' DO
+    sentence := sentence + ch
+    length := length + 1
+    IF ch = ' ' THEN
+      wordCount := wordCount + 1
+    ELSE IF ch IN ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'] THEN
+      vowelCount := vowelCount + 1
+    END_IF
+    READ ch
+  END_WHILE
+
+  wordCount := wordCount + 1  # Add one for the last word after the period
+  WRITE "Length of sentence: ", length, "."
+  WRITE "Number of words: ", wordCount, "."
+  WRITE "Number of vowels: ", vowelCount, "."
+END
