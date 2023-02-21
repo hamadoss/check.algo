@@ -1,27 +1,34 @@
-BEGIN
-  DECLARE sentence, length, wordCount, vowelCount: INTEGER
-  DECLARE ch: CHARACTER
 
-  sentence := ""
-  length := 0
-  wordCount := 0
-  vowelCount := 0
+ALGORITHM check_algo
+VAR
+  Nbm_caracter,Nbm_words,nbm_vowels: INTEGER;
+  sentence: STRING;
+  caracter:CHAR ;
+
+BEGIN
+ Nbm_caracter :=0;
+ Nbm_words :=0;
+ nbm_vowels:=0;
+ caracter : =" ";
 
   WRITE "Enter a sentence that ends with a period: "
-  READ ch
-  WHILE ch <> '.' DO
-    sentence := sentence + ch
-    length := length + 1
-    IF ch = ' ' THEN
-      wordCount := wordCount + 1
-    ELSE IF ch IN ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'] THEN
-      vowelCount := vowelCount + 1
-    END_IF
-    READ ch
+  READ sentence;
+
+  WHILE caracter <> '.' DO
+      IF (caracter= ' ' ) THEN
+          Nbm_words:= Nbm_words + 1;
+      END_IF
+      IF (caracter= 'a' ou caracter= 'e' ou caracter= 'i' ou caracter= 'o'ou caracter= 'u') THEN
+          nbm_vowels:= nbm_vowels + 1;
+      END_IF
+  
+     caracter := caracter +1
   END_WHILE
 
-  wordCount := wordCount + 1  # Add one for the last word after the period
-  WRITE "Length of sentence: ", length, "."
-  WRITE "Number of words: ", wordCount, "."
-  WRITE "Number of vowels: ", vowelCount, "."
-END
+  WRITE("Number of characters:" caracter) 
+  WRITE ("Number of words: " Nbm_words +1)  
+  WRITE ("Number of vowels:"nbm_vowels)
+  
+
+
+
